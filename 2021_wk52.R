@@ -1,6 +1,7 @@
 library(tidyverse)
 library(patchwork)
 
+grafico
 ## Datos ##
 
 starbucks <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-12-21/starbucks.csv')
@@ -61,7 +62,7 @@ starbucks_sum <- starbucks %>%
 
 
 
-leyendas <- c("Espresso - Caffè Americano"= "#128232", "Caffè Mocha" = "#C29742", "Espresso" =  "#5F4209" )
+
 
 ## Graficar Mis bebidas favoritas ##
 
@@ -125,6 +126,8 @@ g1 <- ggplot()+
 
 ## Grafico de dispersion ##
 
+leyendas <- c( "Caffè Mocha" = "#C29742", "Espresso" =  "#5F4209", "Espresso - Caffè Americano"= "#128232" )
+
 g2 <- ggplot()+
   geom_point(data = starbucks_sum, aes( x = caffeine_mg, y = calories),   color = "#D5D8DC")+
   geom_point( data = favoritos, aes ( x = caffeine_mg, y = calories, color = product_name), size = 4)+
@@ -134,7 +137,7 @@ g2 <- ggplot()+
   tema_1()+
   theme(panel.grid.major  = element_blank(),
         panel.grid.minor = element_blank())+
-  scale_color_manual(values = leyendas, name = "Mis cafes favoritos", labels = c("Caffe Mocha","Espresso","Americano"))+
+  scale_color_manual(values = leyendas, name = "Mis cafes favoritos", labels = c("Americano","Caffe Mocha","Espresso"))+
   theme(legend.position = "left",
         legend.justification = "top",
         legend.text = element_text(color = "#575757", family = "Raleway", size = 15 ),
