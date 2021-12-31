@@ -1,7 +1,7 @@
 library(tidyverse)
 library(patchwork)
 
-grafico
+
 ## Datos ##
 
 starbucks <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2021/2021-12-21/starbucks.csv')
@@ -137,7 +137,7 @@ g2 <- ggplot()+
   tema_1()+
   theme(panel.grid.major  = element_blank(),
         panel.grid.minor = element_blank())+
-  scale_color_manual(values = leyendas, name = "Mis cafes favoritos", labels = c("Americano","Caffe Mocha","Espresso"))+
+  scale_color_manual(values = leyendas, name = "Mis cafes favoritos", labels = c("Caffe Mocha","Espresso","Americano"))+
   theme(legend.position = "left",
         legend.justification = "top",
         legend.text = element_text(color = "#575757", family = "Raleway", size = 15 ),
